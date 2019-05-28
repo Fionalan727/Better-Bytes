@@ -3,8 +3,6 @@ exports.up = function(knex, Promise) {
     return Promise.all([
         knex.schema.createTable('ingredient_grocery_list', function(table){
             table.increments();
-            table.integer('quantity');
-            table.integer('ingredient_total');
             table.integer('grocery_list_id').references('grocery_list.id').onDelete('cascade');
             table.integer('ingredients_id').references('ingredients.id').onDelete('cascade');
         })
