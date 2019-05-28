@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import RecipeFilter from './RecipeFilter'
 import Recipe from './Recipe'
 class RecipeList extends Component {
   // Initialize the state
   constructor(props){
     super(props);
     this.state = {
+      data:[],
       recipes: [],
     }
   }
@@ -22,14 +24,24 @@ class RecipeList extends Component {
     .then(res => res.json())
     .then(data => {
       console.log("data",data)
-      this.setState({ recipes:data })
+      this.setState({ data:data })
+      this.setState({recipes:data})
     })
     
    }
 
+   filterCat = (cat)=>{
+    let allCat = this.state.data
+    let filteredCat = allCat.filter(
+      (recipe)=>{
+        return recipe.category_id === cat
+      })
+      this.setState({ recipes: filteredCat} )
+   }
+
   render() {
     const { recipes } = this.state;
-    console.log("recipes",this.state)
+    console.log("recipes now",this.state)
     
     return (
       <div className="App">
@@ -37,18 +49,23 @@ class RecipeList extends Component {
         {/* Check to see if any items are found*/}
    
           <div>
-            {/* Render the list of items */}
-            {recipes.map((recipe) => {
-              return(
-                <Recipe 
-                key ={recipe.id}
-                category = {recipe.category_id}
-                name = {recipe.name}
-                description={recipe.description}
-                cookingTime = {recipe.cooking_duration}
-                />
-              );
-            })}
+            <RecipeFilter
+            filterCat = {this.filterCat}/>
+            <div className="row">
+              {recipes.map((recipe) => {
+                return(
+                  <Recipe
+                  key ={recipe.id}
+                  category = {recipe.category_id}
+                  name = {recipe.name}
+                  description={recipe.description}
+                  cookingTime = {recipe.cooking_duration}
+                  
+                  />
+                );
+              })}
+            </div>
+            
           </div>
       
       
