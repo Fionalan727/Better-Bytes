@@ -4,9 +4,10 @@ exports.up = function(knex, Promise) {
         knex.schema.createTable('recipe', function(table){
             table.increments();
             table.string('name');
+            table.string('image');
+            table.string('category_id');
             table.integer('cooking_duration');
             table.text('description');
-            table.string('category_id');
         })
     ])
 };
