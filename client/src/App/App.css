@@ -27,6 +27,10 @@
   to { transform: rotate(360deg); }
 }
 
+.Nav {
+  float:right;
+}
+
 /* body {
   margin: 0;
   padding: 0;
