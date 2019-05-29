@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
             table.integer('recipe_id').references('recipe.id').onDelete('cascade');
             table.integer('step');
             table.string('image');
+            table.string('title');
             table.string('description');
         })
     ])
