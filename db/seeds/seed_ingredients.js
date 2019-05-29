@@ -5,24 +5,29 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('ingredients').insert([
-        {id: 1, name: 'sugar', price: '1.97', unit: '1'},
-        {id: 2, name: 'onion', price: '1.32', unit: '1'},
-        {id: 3, name: 'potatoes', price: '0.77', unit: '1'},
-        {id: 4, name: 'broccoli', price: '1.49', unit: '1'},
-        {id: 5, name: 'lettuce', price: '1.97', unit: '1'},
-        {id: 6, name: 'cellery', price: '4.97', unit: '1'},
-        {id: 7, name: 'carrot', price: '2.47', unit: '1'},
-        {id: 8, name: 'tomato', price: '0.35', unit: '1'},
-        {id: 9, name: 'cucumber', price: '1.97', unit: '1'},
-        {id: 10, name: 'cream cheese', price: '2.97', unit: '1'},
-        {id: 11, name: 'butter', price: '4.27', unit: '1'},
-        {id: 12, name: 'cream', price: '3.17', unit: '1'},
-        {id: 13, name: 'bread', price: '2.47', unit: '1'},
-        {id: 14, name: 'turkey', price: '11.00', unit: '1'},
-        {id: 15, name: 'bacon', price: '5.97', unit: '1'},
-        {id: 16, name: 'chicken thigh', price: '5.46', unit: '1'},
-        {id: 17, name: 'eggs', price: '3.20', unit: '1'},
-        {id: 18, name: 'ham', price: '10.00', unit: '1'}
+        {id: 1, name: 'lemon', image: "/image/lemon.png", unit: 'piece'},
+        {id: 2, name: 'onion', image: "/image/onion.png", unit: 'piece'},
+        {id: 3, name: 'potatoes', image: "/image/potatoes.png", unit: 'piece'},
+        {id: 4, name: 'broccoli', image: "/image/broccoli.png", unit: 'piece'},
+        {id: 5, name: 'lettuce', image: "/image/lettuce.png", unit: 'piece'},
+        {id: 6, name: 'celery', image: "/image/celery.png", unit: 'piece'},
+        {id: 7, name: 'carrot', image: "/image/carrot.png", unit: 'piece'},
+        {id: 8, name: 'cherry tomatoes', image: "/image/cherrytomatoes.png", unit: 'gram'},
+        {id: 9, name: 'cucumber', image: "/image/cucumber.png", unit: 'piece'},
+        {id: 10, name: 'cream cheese', image: "/image/creamcheese.png", unit: 'gram'},
+        {id: 11, name: 'butter', image: "/image/butter.png", unit: 'gram'},
+        {id: 12, name: 'bread', image: "/image/bread.png", unit: 'piece'},
+        {id: 13, name: 'turkey', image: "/image/turkey.png", unit: 'gram'},
+        {id: 14, name: 'bacon', image: "/image/bacon.png", unit: 'gram'},
+        {id: 15, name: 'chicken thigh', image: "/image/chickenthigh.png", unit: 'gram'},
+        {id: 16, name: 'eggs', image: "/image/eggs.png", unit: 'piece'},
+        {id: 17, name: 'ham', image: "/image/ham.png", unit: 'gram'},
+        {id: 18, name: 'pork chops', image: "/image/porkchops.png", unit: 'gram'},
+        {id: 19, name: 'zucchini', image: "/image/zucchini.png", unit: 'piece'},
+        {id: 20, name: 'chives', image: "/image/chives.png", unit: 'piece'},
+        {id: 21, name: 'rice', image: "/image/rice.png", unit: 'gram'},
+        {id: 22, name: 'sausage', image: "/image/sausage.png", unit: 'gram'},
+        {id: 23, name: 'parsley', image: "/image/parsley.png", unit: 'piece'}
       ]);
     });
 };
