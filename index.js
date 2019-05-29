@@ -17,6 +17,7 @@ const categoryRoutes = require("./routes/category");
 const ingredientsRoutes = require("./routes/ingredients");
 const recipeRoutes = require("./routes/recipe");
 const storeRoutes = require("./routes/store");
+const searchRoutes = require("./routes/search");
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
  app.use("/api/ingredients", ingredientsRoutes(knex));
  app.use("/api/recipe", recipeRoutes(knex));
  app.use("/api/store", storeRoutes(knex));
+ app.use("/api/search", searchRoutes(knex));
 
 
 // Handles any requests that don't match the ones above
