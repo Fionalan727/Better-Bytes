@@ -36,12 +36,13 @@ class RecipeList extends Component {
       (recipe)=>{
         return recipe.category_id === cat
       })
-      this.setState({ recipes: filteredCat} )
+      this.setState({ recipes: filteredCat})
    }
 
   render() {
     const { recipes } = this.state;
-    console.log("recipes now",this.state)
+   
+    console.log("recipes now  blah",this.state.recipes)
     
     return (
       <div className="App">
@@ -55,6 +56,7 @@ class RecipeList extends Component {
               {recipes.map((recipe) => {
                 return(
                   <Recipe
+                  id = {recipe.id}
                   key ={recipe.id}
                   category = {recipe.category_id}
                   name = {recipe.name}

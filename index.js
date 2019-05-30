@@ -18,9 +18,9 @@ const ingredientsRoutes = require("./routes/ingredients");
 const recipeRoutes = require("./routes/recipe");
 const storeRoutes = require("./routes/store");
 const searchRoutes = require("./routes/search");
-
+const TESTRoutes = require('./routes/recipeIngredients');
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // An api endpoint that returns a short list of items
 // app.get('/api/recipe', (req,res) => {
@@ -29,11 +29,11 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 // 	console.log('Sent list of items');
 // });
  app.use("/api/category", categoryRoutes(knex));
- app.use("/api/ingredients", ingredientsRoutes(knex));
+ app.use("/api/ingredients",ingredientsRoutes(knex));
  app.use("/api/recipe", recipeRoutes(knex));
  app.use("/api/store", storeRoutes(knex));
  app.use("/api/search", searchRoutes(knex));
-
+ app.use("/api/test", TESTRoutes(knex));
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{

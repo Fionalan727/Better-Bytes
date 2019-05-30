@@ -1,26 +1,54 @@
 import React, { Component } from 'react';
 
 class RecipePopup extends Component {
-    
+    constructor(props){
+        super(props);
+        this.state = {
+          ingredients:[],
+    //    recipeStep: [],
+        }
+      }
+      
+      // Fetch the list on first mount
+      componentDidMount() {
+        this.getIngredient();
+      }
+      
+      // Retrieves the list of items from the Express app
+       getIngredient = () => {
+        
+        const url = "/api/TEST/"+this.props.id; // site that doesn’t send Access-Control-*
+            fetch( url) 
+            .then(res => res.json())
+            .then(data => {
+            console.log("data",data)
+            this.setState({ ingredients:data })
+
+            })
+        
+       }
+
+       generateIdTag = () => {
+           return "popup-" + this.props.id;
+       }
+       
     render(){
-        console.log(this);
-        //  let url = {this.props.image}
-        //  const backgroundstyle = {
-        //      backgroundImage:'url('+ url +')'
-        //  };
+        const { ingredients } = this.state;
+        console.log("this pop up",this.state)
+       
         return(   
-            <div class="modal fade" id="popup" tabIndex="-1" role="dialog" aria-labelledby="popup" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
+            <div className="modal fade" id={this.generateIdTag()} tabIndex="-1" role="dialog" aria-labelledby="popup" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
                             <h5 className="modal-title" id="popup">{this.props.name}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                        <div class="jumbotron" >
-                            <div class="container for-about">
+                        <div className="modal-body">
+                        <div className="jumbotron" >
+                            <div className="container for-about">
                             <h1 className ="recipeName">{this.props.name}</h1>
                             <p>Prep Time:{this.props.cookingTime}min</p>
                             </div>
@@ -29,7 +57,18 @@ class RecipePopup extends Component {
                             <p>{this.props.description}</p>
                         </div>
                         <div>
-                            <p>Ingredients:{this.props.ingredient}</p>
+                            <p>Ingredient:</p>
+                            <ul>
+                            {ingredients.map((ingredient) =>{
+                                return(
+                        
+                                 <li>{ingredient.name}</li>
+
+                                )
+                            })}
+                            </ul>
+                            
+                            
                         </div>
                         </div>
                         <div class="modal-footer">
