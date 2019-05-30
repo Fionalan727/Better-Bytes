@@ -5,7 +5,15 @@ const divStyle = {
   };
 
 class Recipe extends Component {
+    updatePopup =()=>{
+
+    }
+
+    generateIdTag = () => {
+        return "#popup-" + this.props.id
+    }
     render(){
+        
         return(
              
                 <div className="col-md-3">
@@ -14,7 +22,7 @@ class Recipe extends Component {
                         <div className="card-body">
                             <h5 className="card-title">{this.props.name}</h5>
                             <p className="card-text">{this.props.description}</p>
-                            <a href="/" data-toggle="modal" data-target="#popup"className="btn btn-primary">click for more</a>
+                            <a href="/" data-toggle="modal" data-target={this.generateIdTag()} className="btn btn-primary" >click for more</a>
                         </div>
                      
                         <RecipePopup 

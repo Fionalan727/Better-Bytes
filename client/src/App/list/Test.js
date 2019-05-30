@@ -7,9 +7,6 @@ function Test() {
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
             <Link to="/about">About</Link>
           </li>
           <li>
@@ -80,7 +77,7 @@ function Topic({ match }) {
 class Test extends Component {
     render() {
         return (
-            
+
         )
     }
 }
