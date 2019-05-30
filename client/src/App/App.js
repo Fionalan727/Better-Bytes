@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import RecipeList from './pages/RecipeList';
 import Nav from "./components/nav";
+import ShoppingList from './list/ShoppingList';
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/recipe' component={RecipeList}/>
-
+          <Route path='/shoppinglist' component={ShoppingList}/>
+          <Route path='/test' component={Test}/>
         </Switch>
       </div>
     )
