@@ -60,7 +60,7 @@ class RecipeList extends Component {
                   name = {recipe.name}
                   description={recipe.description}
                   cookingTime = {recipe.cooking_duration}
-                  
+                  image = {recipe.image}
                   />
                 );
               })}

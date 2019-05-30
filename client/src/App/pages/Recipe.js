@@ -10,7 +10,7 @@ class Recipe extends Component {
              
                 <div className="col-md-3">
                     <div className="card" style={divStyle}>
-                        <img src={this.props.url} className="card-img-top" alt="..."/>
+                        <img src={this.props.image} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{this.props.name}</h5>
                             <p className="card-text">{this.props.description}</p>
@@ -18,11 +18,13 @@ class Recipe extends Component {
                         </div>
                      
                         <RecipePopup 
-                        key ={this.props.id}
-                        category = {this.props.category_id}
+                        id = {this.props.id}
+                        key ={this.props.key}
+                        category = {this.props.category}
                         name = {this.props.name}
                         description={this.props.description}
-                        cookingTime = {this.props.cooking_duration}/>
+                        cookingTime = {this.props.cookingTime}
+                        image = {this.props.image}/>
                     </div>
                 </div>
                 
