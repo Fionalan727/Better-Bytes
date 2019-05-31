@@ -23,7 +23,7 @@ module.exports = (knex) => {
     knex('recipe_ingredient')
     .join('recipe', 'recipe.id', 'recipe_ingredient.recipe_id')
     .join('ingredients', 'ingredients.id', 'recipe_ingredient.ingredients_id')
-    .select('ingredients.name as ingredient', 'recipe_ingredient.quantity_per_person', 'ingredient.unit')
+    .select('ingredients.name as ingredient', 'recipe_ingredient.quantity_per_person', 'ingredients.unit')
     .where('recipe.id', recipeID)
     .then(function (result) {
       res.json(result);
