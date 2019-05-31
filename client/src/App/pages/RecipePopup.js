@@ -28,12 +28,17 @@ class RecipePopup extends Component {
         
        }
 
+       
        generateIdTag = () => {
            return "popup-" + this.props.id;
        }
        
     render(){
         const { ingredients } = this.state;
+        const handleOnClick=(evt)=>{
+            let clicked = evt.target.id;
+            this.props.addId(clicked);
+        }
         console.log("this pop up",this.state)
        
         return(   
@@ -73,7 +78,7 @@ class RecipePopup extends Component {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add to shopping list</button>
+                            <button type="button"  id = {this.props.id} onClick={handleOnClick} class="btn btn-primary">Add to shopping list</button>
                         </div>
                     </div>
                 </div>

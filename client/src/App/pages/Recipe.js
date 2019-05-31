@@ -5,9 +5,7 @@ const divStyle = {
   };
 
 class Recipe extends Component {
-    updatePopup =()=>{
-
-    }
+    
 
     generateIdTag = () => {
         return "#popup-" + this.props.id
@@ -26,6 +24,7 @@ class Recipe extends Component {
                         </div>
                      
                         <RecipePopup 
+                        addId={this.props.addId}
                         id = {this.props.id}
                         key ={this.props.key}
                         category = {this.props.category}
