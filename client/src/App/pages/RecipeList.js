@@ -42,7 +42,7 @@ class RecipeList extends Component {
   render() {
     const { recipes } = this.state;
    
-    console.log("recipes now  blah",this.state.recipes)
+    
     
     return (
       <div className="App">

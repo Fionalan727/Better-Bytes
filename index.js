@@ -37,7 +37,7 @@ const recipeStepsRoutes = require('./routes/recipe_steps');
  app.use("/api/store", storeRoutes(knex));
  app.use("/api/search", searchRoutes(knex));
  app.use("/api/price", priceRoutes(knex));
- app.use("/api/test", TESTRoutes(knex));
+ app.use("/api/ingredient", TESTRoutes(knex));
  app.use("/api/quantity", quantityRoutes(knex));
  app.use("/api/recipesteps", recipeStepsRoutes(knex));
 

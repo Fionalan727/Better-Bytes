@@ -18,9 +18,7 @@ class App extends Component {
   }
   
 
-   componentDidMount() {
-     this.addId();
-    }
+ 
 
    addId =(id)=> {
       
@@ -31,20 +29,20 @@ class App extends Component {
   render() {
     const {lists} = this.state.lists
     console.log("list now is", this.state)
-    const App = () => (
+    const Content = () => (
       <div>
         <Nav/>
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route path='/recipe' component={RecipeList} addId ={this.addId} lists = {lists}/>
-          <Route path='/shoppinglist' component={ShoppingList} />
+          <Route path='/recipe' render={() => <RecipeList addId={this.addId} lists={lists}/>} />
+          <Route path='/shoppinglist' render={() =><ShoppingList lists={lists} />}/>
           
         </Switch>
       </div>
     )
     return (
       <Switch>
-        <App addId ={this.addId} lists = {lists}/>
+        <Content/>
       </Switch>
     );
   }

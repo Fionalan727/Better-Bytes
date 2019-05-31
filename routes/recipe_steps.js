@@ -15,14 +15,14 @@ module.exports = (knex) => {
 // WHERE recipe.id = 10;
 //----------------------------------------------------------------------
 
-  router.get("/", (req, res) => {
+  router.get("/:id", (req, res) => {
     // console.log(req);
     // res.send(200);
-    let recipeID = 10;
+ 
     knex('recipe_steps')
     .join('recipe', 'recipe.id', 'recipe_steps.recipe_id')
     .select('recipe_steps.step', 'recipe_steps.title', 'recipe_steps.image', 'recipe_steps.description')
-    .where('recipe.id', recipeID)
+    .where('recipe.id', req.params.id)
     .then(function (result) {
       res.json(result);
     });
