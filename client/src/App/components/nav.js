@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import ItemEntries from './itemEntries';
 import SearchedItems from './SearchedItems';
 
-const request = require('request');
-const cheerio = require('cheerio');
-
 class Nav extends Component {
 
   constructor(){
@@ -15,49 +12,49 @@ class Nav extends Component {
     }
   }
 
-handleInput = e => {
-  if (e.key === 'Enter'){
-    console.log (e.target.value);
-    const itemText = e.target.value; // gets value from input box from the event
-    var query = itemText;
+  componentDidMount() {
+    this.getSearch();
+  }
 
-  console.log("Metro Prices");
-  request(`https://www.metro.ca/en/search?filter=${query}&freeText=true`, (error, response, html) =>{
-  if(!error && response.statusCode === 200){
-    const $ = cheerio.load(html)
+    getSearch = () => {
+    const url = "/api/search";
+    fetch( url )
+    .then(res => res.json())
+    .then(data => {
+      console.log("data",data)
+      this.setState({ data:data })
+      this.setState({search:data})
+    })
 
-    $('.pi--main-price').each((i, el) => {
-      const price = $(el).text();
-      // var regexprice = /\$\s?(\d+[\.\s,\dk]+)|(\d+[\.\s,\dk]+)\$/mig;
-      // var foundprice = price.match(regexprice)[0].trim().slice(1);
-      console.log(price)
+    }
 
-          });
+  handleSubmit = e => {
+    e.preventDefault ()
 
-      $('.pi--main-price span.pi--price').each((i, fl) => {
-        const quantity = $(fl).text();
-        var unit_quantity = 0;
-        if(quantity.includes ("/")){
-          unit_quantity = quantity.substring(0, 1);
-        } else {
-          unit_quantity = 1;
-        }
-        console.log(unit_quantity)
-       });
-          $('.pt--name div').each((i, gl) => {
-            const name = $(gl).text();
-            console.log(name);
-          });
+    const itemText = this.state.currentItem.text; // gets value from input box from the event
 
-  }});
-
+    // currentItem =[{ onion
+    //                      [{store: storename,
+    //                        price: price,
+    //                        quanityt: quantity}]
+    //                potatoe
+    //                      [{store: storename,
+    //                        price: price,
+    //                        quanityt: quantity}]
+    //              }}
 
     const currentItem = {text : itemText, key: Date.now() } // text is input data key is current data
+      console.log (currentItem);
+
     this.setState({ // sets the state of object currentItem
       currentItem,
     })
+    console.log('Hello Input')
   }
-}
+
+  handleInput = e =>{
+    this.setState({currentItem: {text: e.target.value, key: Date.now()}})
+  }
 
   newItem = e => {
     e.preventDefault () // prevents default on reload
@@ -80,6 +77,7 @@ handleInput = e => {
           inputElement={this.inputElement} // to refer to this element
           handleInput={this.handleInput} // to handle data on input field on a change
           currentItem={this.state.currentItem} // to display the value of the state set to currentItem
+          handleSubmit={this.handleSubmit}
         />
         <SearchedItems entries={this.state.items}/>
     </div>

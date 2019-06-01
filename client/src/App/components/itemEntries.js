@@ -9,7 +9,7 @@ class ItemEntries extends Component {
   render() {
     return (
       <div className="itemListMain">
-        <form onSubmit={this.props.newItem}>
+        <form onSubmit={this.props.handleSubmit}>
           <input
               placeholder="Search Items"
               ref={this.props.inputElement}
