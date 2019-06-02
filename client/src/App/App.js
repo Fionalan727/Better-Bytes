@@ -7,20 +7,44 @@ import Nav from "./components/nav";
 import ShoppingList from './list/ShoppingList';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    // this.addId = this.addId.bind(this);
+
+    this.state = {
+      lists:[]
+
+    }
+  }
+
+
+
+
+   addId =(id)=> {
+
+    let updatedList = [...this.state.lists, id]
+    this.setState({ lists: updatedList})
+   }
+
   render() {
-    const App = () => (
+    const {lists} = this.state.lists
+    console.log("list now is", this.state)
+    const Content = () => (
       <div>
         <Nav/>
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/recipe' component={RecipeList}/>
           <Route path='/shoppinglist' component={ShoppingList}/>
+          <Route path='/recipe' render={() => <RecipeList addId={this.addId} lists={lists}/>} />
+          <Route path='/shoppinglist' render={() =><ShoppingList lists={lists} />}/>
+
         </Switch>
       </div>
     )
     return (
       <Switch>
-        <App/>
+        <Content/>
       </Switch>
     );
   }

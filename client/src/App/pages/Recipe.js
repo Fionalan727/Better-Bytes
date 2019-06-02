@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import RecipePopup from './RecipePopup'
 const divStyle = {
-    width: '23rem'
+    width: '21rem'
   };
 
 class Recipe extends Component {
-    updatePopup =()=>{
-
-    }
+    
 
     generateIdTag = () => {
         return "#popup-" + this.props.id
@@ -22,10 +20,11 @@ class Recipe extends Component {
                         <div className="card-body">
                             <h5 className="card-title">{this.props.name}</h5>
                             <p className="card-text">{this.props.description}</p>
-                            <a href="/" data-toggle="modal" data-target={this.generateIdTag()} className="btn btn-primary" >click for more</a>
+                            <a  data-toggle="modal" data-target={this.generateIdTag()} className="btn btn-outline-info" >click for more</a>
                         </div>
                      
                         <RecipePopup 
+                        addId={this.props.addId}
                         id = {this.props.id}
                         key ={this.props.key}
                         category = {this.props.category}

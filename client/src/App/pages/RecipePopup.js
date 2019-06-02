@@ -1,40 +1,55 @@
 import React, { Component } from 'react';
 
+
 class RecipePopup extends Component {
     constructor(props){
         super(props);
         this.state = {
           ingredients:[],
-    //    recipeStep: [],
+          recipeStep: []
         }
       }
       
       // Fetch the list on first mount
       componentDidMount() {
         this.getIngredient();
+        this.getStep();
       }
       
       // Retrieves the list of items from the Express app
        getIngredient = () => {
         
-        const url = "/api/TEST/"+this.props.id; // site that doesn’t send Access-Control-*
+        const url = "/api/ingredient/"+this.props.id; // site that doesn’t send Access-Control-*
             fetch( url) 
             .then(res => res.json())
             .then(data => {
-            console.log("data",data)
+            
             this.setState({ ingredients:data })
 
             })
         
        }
 
+       getStep =()=>{
+            fetch("/api/recipesteps/"+this.props.id)
+            .then(res => res.json())
+            .then(data => {
+            console.log("data",data)
+            this.setState({ recipeStep:data })
+
+            })
+       }
        generateIdTag = () => {
            return "popup-" + this.props.id;
        }
        
     render(){
-        const { ingredients } = this.state;
-        console.log("this pop up",this.state)
+
+        const handleOnClick=(evt)=>{
+            let clicked = evt.target.id;
+            this.props.addId(clicked);
+        }
+
        
         return(   
             <div className="modal fade" id={this.generateIdTag()} tabIndex="-1" role="dialog" aria-labelledby="popup" aria-hidden="true">
@@ -57,12 +72,12 @@ class RecipePopup extends Component {
                             <p>{this.props.description}</p>
                         </div>
                         <div>
-                            <p>Ingredient:</p>
+                            <p>Ingredients:</p>
                             <ul>
-                            {ingredients.map((ingredient) =>{
+                            {this.state.ingredients.map((ingredients) =>{
                                 return(
                         
-                                 <li>{ingredient.name}</li>
+                                 <li>{ingredients.name}</li>
 
                                 )
                             })}
@@ -70,10 +85,25 @@ class RecipePopup extends Component {
                             
                             
                         </div>
+                        <div>
+                            <p>Steps:</p>
+                            <ul>
+                                {this.state.recipeStep.map((recipeStep) =>{
+                                    return(
+                                    <li>
+                                        <div>
+                                            <p>{recipeStep.title}</p>
+                                            <img alt="" src={recipeStep.image} className="img-responsive"/> <p>{recipeStep.step}. {recipeStep.description}</p> 
+                                        </div>
+                                    </li>
+                                    )
+                                })}
+                            </ul>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add to shopping list</button>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" data-dismiss="modal" id = {this.props.id} onClick={handleOnClick} className="btn btn-primary">Add to shopping list</button>
                         </div>
                     </div>
                 </div>
