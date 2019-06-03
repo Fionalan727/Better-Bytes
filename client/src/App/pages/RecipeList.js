@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecipeFilter from './RecipeFilter'
 import Recipe from './Recipe'
+import { Link } from 'react-router-dom';
 class RecipeList extends Component {
   // Initialize the state
   constructor(props){
@@ -47,6 +48,11 @@ class RecipeList extends Component {
     return (
       <div className="App">
         <h1>List of recipe</h1>
+        <Link to={'./shoppinglist'}>
+        <button variant="raised">
+            My List
+        </button>
+      </Link>
         {/* Check to see if any items are found*/}
    
           <div>
