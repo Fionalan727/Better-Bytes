@@ -17,118 +17,71 @@ import BestDeal from "./BestDeal";
 //     };
 //   }
 
-  function ShoppingList() {
+  function ShoppingList({lists}) {
+    // props is generated everytime a route is made
     return (
       <Router>
         <div>
-          
-          {/* Linking the button to the path */}
-          <Link to = "/shoppinglist/onestop"> One Store </Link>
-          <Link to = "/shoppinglist/bestdeal"> Best Deal </Link>
-          
-          {/* Linking path to component */}
-          <Route path = "/shoppinglist/onestop" component = {Topics} />
-          <Route path = "/shoppinglist/bestdeal" component = {About} />
+
+          <div>
+            <h1> Shopping List </h1>
+          </div>
+
+          <div>
+            {/* Linking the button to the path */}
+            <Link to = "/shoppinglist/onestop"> One Store </Link>
+            <Link to = "/shoppinglist/bestdeal"> Best Deal </Link>
+            {/* Linking path to component */}
+            <Route path = "/shoppinglist/onestop" render={(props) => <Stores {...props} lists={lists}/>} />
+            <Route path = "/shoppinglist/bestdeal" component = {Deal} />
+          </div>
+
         </div>
       </Router>
     );
   }
 
-  function Topics({ match }) {
+  function Stores(props) {
+    console.log('coming from stores', props);
+    let match = props.match;
     return (
       <div>
-        <h2>Topics</h2>
+        <h2>Stores</h2>
         <ul>
           <li>
-            <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+            <Link to={`${match.url}/1`}> Walmart </Link>
           </li>
           <li>
-            <Link to={`${match.url}/components`}>Components</Link>
+            <Link to={`${match.url}/2`}> Loblaws </Link>
           </li>
           <li>
-            <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+            <Link to={`${match.url}/3`}> Metro </Link>
           </li>
         </ul>
-  
-        <Route path={`${match.path}/:topicId`} component={Topic} />
-        <Route
-          exact
-          path={match.path}
-          render={() => <h3>Please select a topic.</h3>}
-        />
+        <Route path={`${match.path}/:storeId`} render={(ps) => <Store {...ps} lists={props.lists}/>}/>
+        {/* <Route exact path={match.path} render={() => <h3>Please select a store.</h3>} /> */}
       </div>
     );
   }
   
-  function Topic({ match }) {
+  function Store(props) {
+    console.log('coming from STORE', props);
+    let match = props.match;
     return (
       <div>
-        <h3>{match.params.topicId}</h3>
+        <h2>{match.params.storeId}</h2>
+        <OneShop storeId={match.params.storeId} lists={props.lists}/>
       </div>
     );
   }
   
-  function About() {
+  function Deal() {
     return (
       <div>
-        <h2>About</h2>
+        <h2>Best Deal</h2>
+        <BestDeal />
       </div>
     );
   }
-  
-  // handleClick() {
-  //   var active = this.state.active;
-  //       var newActive = active === 'ONESHOP' ? 'BESTDEAL' : 'ONESHOP';
-  //       this.setState({
-  //           active: newActive
-  //       });
-  // }
-
-  //changeStore() {}
-  //this.setState({store: Walmart})
-
-  //Retrieve ingredient information from database
-  //given an array of num of people and recipe id
-  //return ingredient id, ingredient name, ingredient image,
-  //ingredient unit, quantity_per_person 
-//   getIngredientInfo = () => {
-//   }
-
-  //Retrieve price information from database
-  //given ingredient id from the first retrieval
-  //return store_id and price
-//   getPrice = () => {
-//   }
-
-
-  //Total quantity for an item 
-  //take the 
-
-  //Total price of each item 
-  //
-
-
-//   render() {    
-//     var active = this.state.active;
-
-//     return (
-//       <div className="App">
-//         <div id="header">
-//             <h1>Shopping List</h1>
-//             <div>
-//                 {active === 'ONESHOP' ? (
-//                     <OneShop />
-//                 ) : active === 'BESTDEAL' ? (
-//                     <BestDeal />
-//                 ) : null}
-//                 <button type="button" onClick={this.handleClick}>
-//                     Toggle
-//                 </button>
-//             </div>
-//           </div>
-//       </div>
-//     )
-//   }
-// }
 
 export default ShoppingList;
