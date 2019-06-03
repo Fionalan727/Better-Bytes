@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SearchedItems extends Component {
 
   createResults (item) {
-    return <li >{item.id} {item.name} {item.price} {item.quantity}</li>
+    return <li className="results">{item.id} {item.name}  {"$" + item.price} {"Qty : " + item.quantity}</li>
   }
 
   render () {
