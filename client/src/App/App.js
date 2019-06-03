@@ -16,12 +16,12 @@ class App extends Component {
 
     }
   }
-  
 
- 
+
+
 
    addId =(id)=> {
-      
+
     let updatedList = [...this.state.lists, id]
     this.setState({ lists: updatedList})
    }
@@ -34,9 +34,11 @@ class App extends Component {
         <Nav/>
         <Switch>
           <Route exact path='/' component={Home}/>
+          <Route path='/recipe' component={RecipeList}/>
+          <Route path='/shoppinglist' component={ShoppingList}/>
           <Route path='/recipe' render={() => <RecipeList addId={this.addId} lists={lists}/>} />
           <Route path='/shoppinglist' render={() =><ShoppingList lists={lists} />}/>
-          
+
         </Switch>
       </div>
     )
