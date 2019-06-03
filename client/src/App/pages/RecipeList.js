@@ -9,6 +9,7 @@ class RecipeList extends Component {
     this.state = {
       data:[],
       recipes: [],
+      ingredients: []
     }
   }
   

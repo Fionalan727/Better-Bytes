@@ -10,5 +10,3 @@ class BestDeal extends Component {
     }
 }
 export default BestDeal;
-
-

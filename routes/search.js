@@ -11,13 +11,20 @@ module.exports = (knex) => {
 
 router.get("/:query", (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
- console.log(req.params.query)
-const query = req.params.query;
+ console.log("Your query params are : ", req.params.query)
+let query = req.params.query;
+var query2 = req.params.query;
 
+if (query == "onion"){
+  query = "yellow onion"
+} else { (query == "tomato") 
+  query = "roma tomato"
+  query2 = "italian tomato"
+}
 
 let searchResults = [], cart = [];
 
-request(`https://www.metro.ca/en/search?filter=${query}&freeText=true`, (error, response, html) => {
+request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error, response, html) => {
     if(!error && response.statusCode === 200){
       const $ = cheerio.load(html)
       let items = [], prices = [], quantities = [];

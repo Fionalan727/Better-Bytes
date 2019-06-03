@@ -10,24 +10,27 @@ class App extends Component {
   constructor(props){
     super(props);
     // this.addId = this.addId.bind(this);
-
     this.state = {
-      lists:[]
-
+      lists:[1,10]
     }
   }
+<<<<<<< HEAD
 
 
 
 
    addId =(id)=> {
 
+=======
+
+   addId =(id)=> {
+>>>>>>> feature/shoppinglist
     let updatedList = [...this.state.lists, id]
     this.setState({ lists: updatedList})
    }
 
   render() {
-    const {lists} = this.state.lists
+    const lists = this.state.lists
     console.log("list now is", this.state)
     const Content = () => (
       <div>
