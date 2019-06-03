@@ -4,27 +4,28 @@ class RecipeFilter extends Component {
 
     render(){
         const handleclick =(event)=>{
-            
+      
             let buttonClicked = event.target.id;
             this.props.filterCat(buttonClicked);
+            console.log("button clicked now", buttonClicked)
             
         }
         return(
-            <div>
+            <div className="button-group">
                 <div>
-                    <button className="btn btn-outline-info"id = "1" onClick={handleclick}>Category 1</button>  
+                    <button className="round-button"  id = "1" onClick={handleclick}>Most Popular</button>  
                 
                 
-                    <button className="btn btn-outline-info" id = "2" onClick={handleclick}>Category 2</button>  
+                    <button  className="round-button"  id = "2" onClick={handleclick}>Vegetarian</button>  
                 
                 
-                    <button className="btn btn-outline-info" id = "3" onClick={handleclick}>Category 3</button>  
+                    <button className="round-button" id = "3" onClick={handleclick}>Dairy free</button>  
                 
                 
-                    <button className="btn btn-outline-info" id = "4" onClick={handleclick}>Category 4</button>  
+                    <button className="round-button"  id = "4" onClick={handleclick}>Budget Friendly</button>  
                 
                 
-                    <button className="btn btn-outline-info" id = "5" onClick={handleclick}>Category 5</button>  
+                    <button className="round-button"  id = "5" onClick={handleclick}>Easy Prep</button>  
                 </div>
             </div>
         );

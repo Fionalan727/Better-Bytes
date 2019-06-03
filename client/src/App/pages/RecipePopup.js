@@ -19,7 +19,7 @@ class RecipePopup extends Component {
       // Retrieves the list of items from the Express app
        getIngredient = () => {
         
-        const url = "/api/ingredient/"+this.props.id; // site that doesn’t send Access-Control-*
+        const url = "/api/quantity/"+this.props.id; // site that doesn’t send Access-Control-*
             fetch( url) 
             .then(res => res.json())
             .then(data => {
@@ -34,7 +34,7 @@ class RecipePopup extends Component {
             fetch("/api/recipesteps/"+this.props.id)
             .then(res => res.json())
             .then(data => {
-            console.log("data",data)
+
             this.setState({ recipeStep:data })
 
             })
@@ -49,6 +49,12 @@ class RecipePopup extends Component {
             let clicked = evt.target.id;
             this.props.addId(clicked);
         }
+        var styles ={
+    
+            backgroundImage:'url(' + this.props.image + ')'  ,
+            backgroundSize:"cover"
+
+          }
 
        
         return(   
@@ -57,27 +63,29 @@ class RecipePopup extends Component {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="popup">{this.props.name}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div className="modal-body">
-                        <div className="jumbotron" >
+                        <div className="jumbotron" style={styles}>
                             <div className="container for-about">
                             <h1 className ="recipeName">{this.props.name}</h1>
-                            <p>Prep Time:{this.props.cookingTime}min</p>
+                            
                             </div>
                         </div>
                         <div>
+                            <p>Prep Time: {this.props.cookingTime} min</p>
                             <p>{this.props.description}</p>
                         </div>
                         <div>
                             <p>Ingredients:</p>
                             <ul>
                             {this.state.ingredients.map((ingredients) =>{
+                                let twoServing= (ingredients.quantity_per_person*2)
                                 return(
                         
-                                 <li>{ingredients.name}</li>
+                                 <li>{ingredients.ingredient}; {twoServing} {ingredients.unit} </li>
 
                                 )
                             })}

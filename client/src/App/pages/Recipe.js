@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RecipePopup from './RecipePopup'
 const divStyle = {
-    width: '21rem'
+    width: '14rem'
   };
 
 class Recipe extends Component {
@@ -14,13 +14,18 @@ class Recipe extends Component {
         
         return(
              
-                <div className="col-md-3">
+                <div className="card-deck col-md-4">
                     <div className="card" style={divStyle}>
                         <img src={this.props.image} className="card-img-top" alt="..."/>
-                        <div className="card-body">
+                        <div className="prep-time"><i class="far fa-clock"></i>{this.props.cookingTime}min</div>
+                        <div className="card-body d-flex flex-column text-center ">
                             <h5 className="card-title">{this.props.name}</h5>
-                            <p className="card-text">{this.props.description}</p>
-                            <a  data-toggle="modal" data-target={this.generateIdTag()} className="btn btn-outline-info" >click for more</a>
+                            <div className="info-div">
+                                <a  data-toggle="modal" data-target={this.generateIdTag()} className="btn btn-outline-info align-self-baseline " >click for more</a>
+                            </div>
+                               
+                        
+                            
                         </div>
                      
                         <RecipePopup 

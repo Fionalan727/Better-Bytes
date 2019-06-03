@@ -40,9 +40,9 @@ class RecipeList extends Component {
    }
 
   render() {
-    const { recipes } = this.state;
+    console.log("recipe after filter",this.state)
    
-    
+     const { recipes } = this.state;
     
     return (
       <div className="App">
@@ -53,7 +53,7 @@ class RecipeList extends Component {
             <RecipeFilter
             addId ={this.props.addId}
             filterCat = {this.filterCat}/>
-            <div className="row">
+            <div className="recipe-container  row justify-content-around">
               {recipes.map((recipe) => {
                 return(
                   <Recipe

@@ -1,5 +1,79 @@
-/* body {
+
+.round-button {
+  width:103px;
+  height:100px;
+  border: 2px solid #6dcc85;
+  border-radius: 50%;
+  color:#6dcc85;
+  text-align:center;
+  text-decoration:none;
+  background:white;
+  box-shadow: 0 0 3px gray;
+  font-size:18px;
+  font-weight: 300;
+
+  margin:0px 40px;
+  line-height: 1.5;
+  vertical-align: middle;  
+}
+.round-button:hover {
+  background: #6dcc85;
+  color: white;
+}
+.round-button:active {
+  outline: none;
+  border: none;
+  }
+  
+.round-button:focus {
+  outline: none;
+}
+
+ .recipe-container{
+  padding:0 14%;
   margin: 0;
+} 
+
+.col-md-4 {
   padding: 0;
-  font-family: sans-serif;
+} 
+
+ /* .card-body{
+  
+  text-align: -webkit-center;
+  height: 163px;
 } */
+.button-group{
+  text-align: center;
+  margin: 5% 0;
+}
+.in-button{
+  margin-top: 37px;
+}
+
+.recipeName{
+  /* -webkit-text-stroke: 1px #6dcc85; */
+  color: papayawhip;
+  text-shadow:
+       3px 3px 0 #6dcc85,
+     -1px -1px 0 #6dcc85,  
+      1px -1px 0 #6dcc85,
+      -1px 1px 0 #6dcc85,
+       1px 1px 0 #6dcc85;
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+  font-style:  italic;
+  text-align: center;
+}
+.prep-time{
+  font-weight: bold;
+  color: papayawhip;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px;
+  background-color:#6dcc85 ;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 20px;
+  font-size: 0.8em;
+}
