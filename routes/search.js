@@ -144,10 +144,11 @@ request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/
             const list2 = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
             searchResults.push(list2[0])
             console.log(searchResults)
+            searchResults.sort((a, b) => (a.price > b.price) ? 1 : -1);
   };
-  const newseachResults = (searchResults.sort((a, b) => (a.price > b.price) ? 1 : -1));
-  console.log(newseachResults)
-  res.json(newseachResults);
+
+  console.log("These are your new search results : ",searchResults)
+  res.json(searchResults);
 });
 
 })
