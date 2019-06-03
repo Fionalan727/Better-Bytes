@@ -61,20 +61,20 @@ request(`https://www.metro.ca/en/search?filter=${query}&freeText=true`, (error, 
       // res.json(searchResults);
     }});
 
-    request(`https://www.metro.ca/en/search?filter=${query}&freeText=true`, (error, response, html) => {
+    request(`https://www.realcanadiansuperstore.ca/search/1559539688626/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) => {
       if(!error && response.statusCode === 200){
         const $ = cheerio.load(html)
         let items = [], prices = [], quantities = [];
         let testArray = [];
         
-        $('.pt--name div').each((i, gl) => {
+        $('.js-product-entry-name').each((i, gl) => {
           const name = $(gl).text();
           console.log(name);
           // searchResults.name = name;
           items.push(name);
         });
   
-        $('.pi--main-price').each((i, el) => {
+        $('.reg-price-text').each((i, el) => {
           const price = $(el).text();
           var regexprice = /\$\s?(\d+[\.\s,\dk]+)|(\d+[\.\s,\dk]+)\$/mig;
           var foundprice = price.match(regexprice)[0].trim().slice(1);
@@ -82,7 +82,7 @@ request(`https://www.metro.ca/en/search?filter=${query}&freeText=true`, (error, 
           prices.push(foundprice);
         });
   
-        $('.pi--main-price span.pi--price').each((i, fl) => {
+        $('.reg-price-text').each((i, fl) => {
           const quantity = $(fl).text();
           var unit_quantity = 0;
           if(quantity.includes ("/")){
@@ -100,8 +100,8 @@ request(`https://www.metro.ca/en/search?filter=${query}&freeText=true`, (error, 
         for (var i = 0; i<length; i++){
           testArray.push({id: "Walmart",name: items[i], price: prices[i], quantity: quantities[i]})
         }
-        const list = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
-        searchResults.push(list[0])
+        const list3 = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
+        searchResults.push(list3[0])
         // res.json(searchResults);
       }});
 
@@ -147,7 +147,7 @@ request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/
   };
   const newseachResults = (searchResults.sort((a, b) => (a.price > b.price) ? 1 : -1));
   console.log(newseachResults)
-  res.json(searchResults);
+  res.json(newseachResults);
 });
 
 })
