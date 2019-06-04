@@ -14,17 +14,8 @@ class App extends Component {
       lists:[1,10]
     }
   }
-<<<<<<< HEAD
-
-
-
 
    addId =(id)=> {
-
-=======
-
-   addId =(id)=> {
->>>>>>> feature/shoppinglist
     let updatedList = [...this.state.lists, id]
     this.setState({ lists: updatedList})
    }
