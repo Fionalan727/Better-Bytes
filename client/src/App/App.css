@@ -1,0 +1,47 @@
+.Search{
+    float: right;
+}
+
+.SearchInput{
+    border-radius:50px;
+}
+
+.SearchButton{
+    color:#6dcc85;
+}
+
+.getStarted{
+    float:left;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    padding: 5em;
+    box-sizing: border-box;
+}
+
+.chipmunk{
+    position: absolute;
+    bottom: 10;
+    left:18%;
+    z-index:2;
+}
+
+.path{
+    position: absolute;
+    top: 0%;
+    left:0;
+    width: 100%;
+    z-index: 1;
+}
+
+.clearing{
+    position: fixed;
+    height: 100vh;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    bottom:100;
+    width:100%;
+}

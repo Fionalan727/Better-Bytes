@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ItemEntries from './itemEntries';
 import SearchedItems from './SearchedItems';
+import '../App.css';
 
 class Nav extends Component {
 
