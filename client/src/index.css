@@ -189,7 +189,3 @@ a.float:hover + div.label-container{
 a.float:hover{
   background-color: #6dcc85;
 }
-.card-deck .card {
-
-  z-index: -111;
-} 
