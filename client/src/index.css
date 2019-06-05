@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
 .round-button {
   width:103px;
@@ -76,4 +77,51 @@
   border-top-left-radius: 4px;
   border-bottom-right-radius: 20px;
   font-size: 0.8em;
+}
+
+/* Shopping List CSS Starts Here */
+
+body {
+  background-color: aliceblue;
+  background-image: url("/image/shoppinglistbg2.png");
+}
+
+h1 {
+  size: 100px;
+}
+
+.shoppinglist-overall {
+  margin: 5%;
+  text-align: center;
+}
+
+.totalprice-style {
+  height: 50px;
+  text-align: left;
+  margin-top: 6%;
+  margin-bottom: 1%;
+}
+
+.input-people-div {
+  float:right;
+}
+
+.input-people {
+  text-align: center;
+  height: 50px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.itemjs-card-style {
+  box-shadow: hsl(0, 0%, 85%) 0 0 8px 0px;
+  border: none;
+  /* box-border: #6dcc85; */
+  height: 200px;
+  text-align: center;
+  /* width: 90%; */
+  margin-top: 3%;
+  display: inline-block;
+  margin: 20px;
+  text-decoration-style: bold;
 }

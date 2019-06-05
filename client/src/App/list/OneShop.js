@@ -16,8 +16,14 @@ class OneShop extends Component {
             numberOfPortions: 2,
             store: this.props.storeId,
             recipes: this.props.lists,
-            needIngredients: [{ingredientId:2, quantity_per_person:2}, {ingredientId:8, quantity_per_person:300}], //[ingredient id, quantity needed]
-            buyIngredients: [{ingredientId: 8, unitsNeeded: 2, totalPerIngredient: 7.94}, {ingredientId: 2, unitsNeeded: 1, totalPerIngredient: 1.00}], //[ingredient id, number of units needed, total price per item]
+
+            //[ingredient id, quantity needed]
+            // needIngredients: [{ingredientId:2, quantity_per_person:2}, {ingredientId:8, quantity_per_person:300}], 
+            needIngredients: [],
+            
+            //[ingredient id, number of units needed, total price per item]
+            // buyIngredients: [{ingredientId: 8, unitsNeeded: 2, totalPerIngredient: 7.94}, {ingredientId: 2, unitsNeeded: 1, totalPerIngredient: 1.00}],
+            buyIngredients: [], 
             total: 0
         }
         this.fetchIngredientQuantity = this.fetchIngredientQuantity.bind(this);
@@ -26,18 +32,25 @@ class OneShop extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    
     //Called before render()
-    componentWillMount(){
-        // console.log('First this called');
-        // console.log('recipes', this.state.recipes);
-        // console.log('store', this.state.store);
-        // this.fetchIngredientQuantity();
-        // this.fetchIngredientPrice();
-        // this.findTotal();
-    }
+    // componentWillMount(){
+    //     console.log('First this called');
+    //     console.log('recipes', this.state.recipes);
+    //     console.log('store', this.state.store);
+
+
+    //     this.fetchIngredientQuantity()
+    //         .then(this.fetchIngredientQuantity)
+    //         .then(this.findTotal)
+
+    //     this.fetchIngredientQuantity();
+    //     this.fetchIngredientPrice();
+    //     this.findTotal();
+    // }
 
     //Called after render()
-    componentDidMount(){
+    componentDidUpdate(){
         // console.log('COMPONENTDIDMOUNT()');
         this.fetchIngredientQuantity();
         this.fetchIngredientPrice();
@@ -83,10 +96,14 @@ class OneShop extends Component {
                     }
                 }
             this.setState({needIngredients: ingredientsForAllRecipes});
-            console.log('needIngredients', this.state.needIngredients);
-            // console.log('ingredientsForAllRecipes each time', ingredientsForAllRecipes);
+            // this.fetchIngredientPrice();
+            console.log('ingredientsForAllRecipes each time', ingredientsForAllRecipes);
             })
         })
+        // console.log('needIngredients BEFORE SETSTATE', this.state.needIngredients);
+        // this.setState({needIngredients: ingredientsForAllRecipes});
+        // console.log('needIngredients AFTER SETSTATE', this.state.needIngredients);
+        // this.fetchIngredientPrice();
     }
     //-------------------------------------------------------------------------------
 
@@ -176,10 +193,10 @@ class OneShop extends Component {
                 }
                 this.setState({buyIngredients: temp});
                 console.log('buyIngredients', this.state.buyIngredients);
+                // this.findTotal();
             })
         })
     }
-         
     //-------------------------------------------------------------------------------
     
 
@@ -191,6 +208,7 @@ class OneShop extends Component {
     // 3) Update state of numOfPortions to reflect this number
     // 4) Create a function that set default value to 2 portions
     // 5) Create a function that changes the calcuation of the state for needIngredients
+    
     handleChange(e) {
         let userInput = Number(e.target.value);
         this.setState({ numberOfPortions: userInput });
@@ -257,10 +275,6 @@ class OneShop extends Component {
 
                     <p>number of portions</p>
                     {this.state.numberOfPortions}
-
-                    <h1>One Stop Shop!</h1>
-
-                    {/* <input value={this.state.numberOfPortions} onChange={event => this.setState({numberOfPortions: event.target.value.replace(/\D/,'')})}/> */}
 
                     <input onChange={this.handleChange} placeholder="How many people?" />
 
