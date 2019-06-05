@@ -50,7 +50,7 @@ class RecipeList extends Component {
       <div className="App">
         <h1>List of recipe</h1>
         
-          <Link to={'./shoppinglist'}>
+          <Link to={'./shoppinglist/onestop/walmart'}>
           <a class="float">
           <i class="fa fa-carrot my-float"></i>
           </a>

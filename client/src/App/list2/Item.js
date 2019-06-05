@@ -38,7 +38,7 @@ class Item extends Component {
         // console.log(this.props.recipes)
         return (
             <div className="card itemjs-card-style">
-                <ul>
+                <ul className="item-box">
                     <ol>
                         <p>{this.state.name}</p>
                     </ol>
