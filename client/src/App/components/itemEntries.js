@@ -5,8 +5,8 @@ class ItemEntries extends Component {
    return (
       <div className="itemListMain">
         <form onSubmit={this.props.handleSubmit}>
-          <input name="query" placeholder="Search Items"/>
-          <button type="submit"> Search Item </button>
+          <input className="SearchInput" name="query" placeholder="Search Items"/>
+          <button className="SearchButton" type="submit"> Search Item </button>
         </form>
       </div>
     )
