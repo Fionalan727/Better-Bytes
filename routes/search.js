@@ -25,6 +25,7 @@ if (query == "onion"){
 let searchResults = [], cart = [];
 
 request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error, response, html) => {
+  console.log ("Metro Prices");
     if(!error && response.statusCode === 200){
       const $ = cheerio.load(html)
       let items = [], prices = [], quantities = [];
@@ -68,7 +69,9 @@ request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error,
       // res.json(searchResults);
     }});
 
+
     request(`https://www.realcanadiansuperstore.ca/search/1559539688626/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) => {
+      console.log ("Walmart Prices");
       if(!error && response.statusCode === 200){
         const $ = cheerio.load(html)
         let items = [], prices = [], quantities = [];
@@ -112,7 +115,9 @@ request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error,
         // res.json(searchResults);
       }});
 
+
 request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) =>{
+  console.log ("Loblaws Prices");
   if(!error && response.statusCode === 200){
     const $ = cheerio.load(html);
     let items = [], prices = [], quantities = [];
