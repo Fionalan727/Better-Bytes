@@ -11,8 +11,8 @@
   background:white;
   box-shadow: 0 0 3px gray;
   font-size:18px;
-  font-weight: 300;
-
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
   margin:0px 40px;
   line-height: 1.5;
   vertical-align: middle;  
@@ -84,6 +84,7 @@
 body {
   background-color: aliceblue;
   background-image: url("/image/shoppinglistbg2.png");
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -196,4 +197,11 @@ a.float:hover{
 
 a.float:hover .my-float{
   color: papayawhip;
+}
+.jumbotron{
+  height: 341px;
+}
+.recipe-title{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
