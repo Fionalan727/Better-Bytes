@@ -1,4 +1,6 @@
 .Search{
+    margin-top: 1%;
+    margin-right: 8%;
     float: right;
 }
 
@@ -11,6 +13,8 @@
 }
 
 .getStarted{
+    margin-top: 1%;
+    margin-left: 5%;
     float:left;
 }
 
