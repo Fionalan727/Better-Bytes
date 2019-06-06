@@ -38,23 +38,23 @@ class Item extends Component {
         // console.log(this.props.recipes)
         return (
             <div className="card itemjs-card-style">
-                <ul className="item-box">
-                    <ol>
-                        <p>{this.state.name}</p>
-                    </ol>
+                <div className="item-box">
+                    <div>
+                        <p><b>{this.state.name}</b></p>
+                    </div>
                     
-                    <ol>
-                        <img src={this.state.image} />
-                    </ol>
+                    <div>
+                        <img className="ingredient-image-size" src={this.state.image} />
+                    </div>
 
-                    <ol>
-                        <p>{this.props.item.units}</p>
-                    </ol>
+                    <div>
+                        <p>Buy <b>{this.props.item.units}</b></p>
+                    </div>
 
-                    <ol>
-                        <p>${this.props.item.totalPerIngredient}</p>
-                    </ol>
-                </ul>
+                    <div>
+                        <p>For <b>${this.props.item.totalPerIngredient}</b></p>
+                    </div>
+                </div>
             </div>
         );
     }
