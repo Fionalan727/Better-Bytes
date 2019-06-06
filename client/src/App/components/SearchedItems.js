@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import {SlideDown} from 'react-slidedown'
+import 'react-slidedown/lib/slidedown.css'
+
 
 class SearchedItems extends Component {
 
   createResults (item) {
-    return <li className="results">{item.id} {item.name}  {"$" + item.price} {"Qty : " + item.quantity}</li>
+    return (
+    <SlideDown className={'my-dropdown-slidedown'}>
+    <li className="results">{item.id} {item.name}  {"$" + item.price} {"Qty : " + item.quantity}</li>
+    </SlideDown>
+    )
   }
 
   render () {

@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-
 .round-button {
   width:103px;
   height:100px;
@@ -45,8 +43,10 @@
   height: 163px;
 } */
 .button-group{
+  float: right;
+  display: inline-block;
   text-align: center;
-  margin: 5% 0;
+  margin: 10% 18% 5%;
 }
 .in-button{
   margin-top: 37px;

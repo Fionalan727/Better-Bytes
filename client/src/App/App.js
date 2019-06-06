@@ -24,7 +24,9 @@ class App extends Component {
     console.log("list now is", this.state)
     const Content = () => (
       <div>
-        <Nav/>
+
+          <Nav/>
+
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route path='/recipe' render={() => <RecipeList addId={this.addId} lists={lists}/>} />

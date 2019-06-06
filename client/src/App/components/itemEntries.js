@@ -6,7 +6,7 @@ class ItemEntries extends Component {
       <div className="itemListMain">
         <form onSubmit={this.props.handleSubmit}>
           <input className="SearchInput" name="query" placeholder="Search Items"/>
-          <button className="SearchButton" type="submit"> Search Item </button>
+          <button className="SearchButton btn btn-outline-info align-self-baseline " type="submit"> Search Item </button>
         </form>
       </div>
     )

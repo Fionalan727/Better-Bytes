@@ -1,22 +1,58 @@
-.Search{
-    margin-top: 1%;
-    margin-right: 8%;
-    float: right;
+.Search {
+    margin: 20px;
+}
+
+.thisList{
+    float:right;
+    margin-top: 55px;
+    margin-right: -293px;
+}
+
+.itemListMain{
+    float:right;
+    width: 24%;
+    margin-top: -1px;
+    margin-right: 45px;
 }
 
 .SearchInput{
     border-radius:50px;
+    margin-right: 10px;
+    outline:none;
 }
 
-.SearchButton{
+.SearchButton:active{
+    outline: none;
+    border: none;
+    color:#6dcc85;
+}
+.SearchButton:focus {
+    outline: none;
+  }
+
+a {
+    margin: 10px 0 0 10px;
+}
+
+.getStarted:active{
+    margin-top: 10px;
+    margin-left: 50px;
+    float:left;
+    outline: none;
+    border: none;
     color:#6dcc85;
 }
 
-.getStarted{
-    margin-top: 1%;
-    margin-left: 5%;
-    float:left;
+.getStarted:focus {
+    outline: none;
+  }
+
+.react-slidedown {
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
 }
+
+/* Parallax Styles */
 
 section {
     width: 100%;
@@ -28,7 +64,7 @@ section {
 .chipmunk{
     position: absolute;
     bottom: 10;
-    left:18%;
+    left:8%;
     z-index:2;
 }
 
@@ -44,8 +80,36 @@ section {
     position: fixed;
     height: 100vh;
     z-index: 0;
-    top: 0;
+    top: 80px;
     left: 0;
     bottom:100;
     width:100%;
+}
+
+/* Parallax text values */ 
+
+h1{
+    margin: 1em 0 0 0;
+    font-size: 3em;
+    text-align: center;
+}
+
+p{
+    font-size: 1.4em;
+    margin:0;
+    font-weight: bold;
+    opacity: 0.6;
+    text-align: center;
+}
+
+.section2{
+    z-index: 5;
+    position: absolute;
+    font-weight: 300;
+    width: 70%;
+}
+
+h2{
+    text-transform: uppercase;
+    font-size: 3.4em;
 }
