@@ -15,12 +15,12 @@ router.get("/:query", (req, res) => {
 let query = req.params.query;
 var query2 = req.params.query;
 
-if (query == "onion"){
-  query = "yellow onion"
-} else { (query == "tomato") 
-  query = "roma tomato"
-  query2 = "italian tomato"
-}
+// if (query == "onion"){
+//   query = "yellow onion"
+// } else { (query == "tomato") 
+//   query = "roma tomato"
+//   query2 = "italian tomato"
+// }
 
 let searchResults = [], cart = [];
 
