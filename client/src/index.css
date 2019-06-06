@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 /* @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700); */
 
->>>>>>> 637c8dc56a0aa3d53807e8d4a9c0d345ec7c087c
 .round-button {
   width:103px;
   height:100px;
@@ -222,7 +219,7 @@ a.float:hover .my-float{
   color: papayawhip;
 }
 .jumbotron{
-  /* height: 341px; */
+   height: 341px; 
 }
 .recipe-title{
   font-family: 'Roboto', sans-serif;

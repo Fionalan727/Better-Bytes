@@ -85,11 +85,7 @@ class RecipePopup extends Component {
                                 let twoServing= (ingredient.quantity_per_person*2)
                                 return(
                         
-<<<<<<< HEAD
-                                 <li>{ingredients.name}; {twoServing} {ingredients.unit} </li>
-=======
                                  <li>{ingredient.name}: {twoServing} {ingredient.unit} </li>
->>>>>>> 637c8dc56a0aa3d53807e8d4a9c0d345ec7c087c
 
                                 )
                             })}
