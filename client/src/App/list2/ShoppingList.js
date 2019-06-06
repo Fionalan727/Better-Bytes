@@ -24,19 +24,19 @@ class ShoppingList extends Component {
     console.log("list now is", this.state)
     return (
         <div className="shoppinglist-overall"> 
-            <h1><b>Shopping List</b></h1>
+            <h1><b>Where would you like to go?</b></h1>
             <div>
-                <ul className="list-inline">
-                    <ol className="list-inline-item">
+                <div className="list-inline shopping-overall-stores">
+                    <div className="list-inline-item">
                         <Link to = "/shoppinglist/onestop/walmart"><button className= "btn btn-primary">Walmart</button></Link>
-                    </ol>
-                    <ol className="list-inline-item">
+                    </div>
+                    <div className="list-inline-item">
                         <Link to = "/shoppinglist/onestop/loblaws"><button className= "btn btn-primary">Loblaws</button> </Link>
-                    </ol>
-                    <ol className="list-inline-item">
+                    </div>
+                    <div className="list-inline-item">
                         <Link to = "/shoppinglist/onestop/metro"> <button className= "btn btn-primary">Metro </button></Link>
-                    </ol>
-                </ul>
+                    </div>
+                </div>
                     <Route path = "/shoppinglist/onestop/walmart" render={() => <Walmart lists={this.props.lists}/>}/>
                     <Route path = "/shoppinglist/onestop/loblaws" render={() => <Loblaws lists={this.props.lists}/>}/>
                     <Route path = "/shoppinglist/onestop/metro" render={() => <Metro lists={this.props.lists}/>}/>

@@ -281,7 +281,7 @@ class Walmart extends Component {
         return(
             <div>
                 <div className="input-people-div">
-                    <input className="input-people" onKeyDown={this.handleChange} placeholder="For 2 people" />
+                    <input className="input-people" onKeyDown={this.handleChange} placeholder="2 people" />
                 </div>
         
                 <h1 className="totalprice-style">Total Price at <b>Walmart</b> is <b>${this.state.total}</b></h1>

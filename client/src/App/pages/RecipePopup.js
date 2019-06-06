@@ -70,7 +70,7 @@ class RecipePopup extends Component {
                         <div className="modal-body">
                         <div className="jumbotron" style={styles}>
                             <div className="container for-about">
-                            <h1 className ="recipeName">{this.props.name}</h1>
+                            
                             
                             </div>
                         </div>
@@ -79,23 +79,27 @@ class RecipePopup extends Component {
                             <p>{this.props.description}</p>
                         </div>
                         <div>
-                            <p>Ingredients:</p>
-                            <ul>
-                            {this.state.ingredients.map((ingredients) =>{
-                                let twoServing= (ingredients.quantity_per_person*2)
+                            <p>Ingredients(for two):</p>
+                            <ol>
+                            {this.state.ingredients.map((ingredient) =>{
+                                let twoServing= (ingredient.quantity_per_person*2)
                                 return(
                         
+<<<<<<< HEAD
                                  <li>{ingredients.name}; {twoServing} {ingredients.unit} </li>
+=======
+                                 <li>{ingredient.name}: {twoServing} {ingredient.unit} </li>
+>>>>>>> 637c8dc56a0aa3d53807e8d4a9c0d345ec7c087c
 
                                 )
                             })}
-                            </ul>
+                            </ol>
                             
                             
                         </div>
                         <div>
                             <p>Steps:</p>
-                            <ul>
+                            <ol>
                                 {this.state.recipeStep.map((recipeStep) =>{
                                     return(
                                     <li>
@@ -106,7 +110,7 @@ class RecipePopup extends Component {
                                     </li>
                                     )
                                 })}
-                            </ul>
+                            </ol>
                         </div>
                         </div>
                         <div className="modal-footer">
