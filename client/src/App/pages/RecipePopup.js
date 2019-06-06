@@ -19,7 +19,7 @@ class RecipePopup extends Component {
       // Retrieves the list of items from the Express app
        getIngredient = () => {
         
-        const url = "/api/quantity/"+this.props.id; // site that doesn’t send Access-Control-*
+        const url = "/api/ingredient/"+this.props.id; // site that doesn’t send Access-Control-*
             fetch( url) 
             .then(res => res.json())
             .then(data => {
@@ -85,7 +85,7 @@ class RecipePopup extends Component {
                                 let twoServing= (ingredients.quantity_per_person*2)
                                 return(
                         
-                                 <li>{ingredients.ingredient}; {twoServing} {ingredients.unit} </li>
+                                 <li>{ingredients.name}; {twoServing} {ingredients.unit} </li>
 
                                 )
                             })}

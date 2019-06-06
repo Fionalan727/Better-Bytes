@@ -8,7 +8,7 @@ class SearchedItems extends Component {
   createResults (item) {
     return (
     <SlideDown className={'my-dropdown-slidedown'}>
-    <li className="results">{item.id} {item.name}  {"$" + item.price} {"Qty : " + item.quantity}</li>
+    <li className="results" maxlength="15">{item.id}   {item.name}   {"$" + item.price}   {"Qty : " + item.quantity}</li>
     </SlideDown>
     )
   }

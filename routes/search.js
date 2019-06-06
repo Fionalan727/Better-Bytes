@@ -62,7 +62,7 @@ request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error,
 
       var length = items.length;
       for (var i = 0; i<length; i++){
-        testArray.push({id: "Metro",name: items[i], price: prices[i], quantity: quantities[i]})
+        testArray.push({id: "Metro   :",name: items[i], price: prices[i], quantity: quantities[i]})
       }
       const list = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
       searchResults.push(list[0])
@@ -108,7 +108,7 @@ request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error,
   
         var length = items.length;
         for (var i = 0; i<length; i++){
-          testArray.push({id: "Walmart",name: items[i], price: prices[i], quantity: quantities[i]})
+          testArray.push({id: "Walmart :",name: items[i], price: prices[i], quantity: quantities[i]})
         }
         const list3 = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
         searchResults.push(list3[0])
@@ -151,7 +151,7 @@ request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/
 
             var length = 4;
             for (var i = 0; i<length; i++){
-            testArray.push({id: "Loblaws",name: items[i], price: prices[i], quantity: quantities[i]})
+            testArray.push({id: "Loblaws :",name: items[i], price: prices[i], quantity: quantities[i]})
             }
             const list2 = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
             searchResults.push(list2[0])
