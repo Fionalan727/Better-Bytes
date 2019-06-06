@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700); */
 
 .round-button {
   width:103px;
@@ -82,9 +82,17 @@
 /* Shopping List CSS Starts Here */
 
 body {
-  background-color: aliceblue;
-  background-image: url("/image/shoppinglistbg2.png");
   font-family: 'Roboto', sans-serif;
+  background-image: url("/image/ingredientsbg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  width: 100vm;
+  height: 100vm;
 }
 
 h1 {
@@ -92,44 +100,55 @@ h1 {
 }
 
 .shoppinglist-overall {
-  margin: 5%;
+  margin-top: 8%;
   text-align: center;
+}
+
+.shopping-overall-stores {
+  margin-top: 50px;
 }
 
 .totalprice-style {
   height: 50px;
   text-align: left;
   margin-top: 6%;
-  margin-bottom: 1%;
+  margin-left: 5vw;
+  margin-bottom: 3vw;
 }
 
 .input-people-div {
   float:right;
+  margin-right: 5vw;
 }
 
 .input-people {
   text-align: center;
+  text-decoration: darkgrey;
   height: 50px;
   border-radius: 16px;
-  box-shadow: none;
+  border-style:solid;
+  border-color:lightgrey;
 }
 
 .itemjs-card-style {
   box-shadow: hsl(0, 0%, 85%) 0 0 8px 0px;
   border: none;
-  /* box-border: #6dcc85; */
-  height: 200px;
   text-align: center;
-  /* width: 90%; */
-  margin-top: 3%;
+  max-width: 20%;
+  padding: 3% 1%;
   display: inline-block;
   margin: 20px;
   text-decoration-style: bold;
 }
 
-.item-box {
-  padding: 0;
+.ingredient-image-size {
+  height: 45%;
+  width: 45%;
 }
+
+/* .item-box {
+  padding: 0px;
+} */
 
 /* copied recipe files from github  */
 
@@ -178,7 +197,6 @@ h1 {
 }
 
 
-
 a.float + div.label-container {
   visibility: hidden;
   opacity: 0;
@@ -199,7 +217,7 @@ a.float:hover .my-float{
   color: papayawhip;
 }
 .jumbotron{
-  height: 341px;
+  /* height: 341px; */
 }
 .recipe-title{
   font-family: 'Roboto', sans-serif;
