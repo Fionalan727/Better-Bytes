@@ -66,11 +66,12 @@ request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error,
       }
       const list = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
       searchResults.push(list[0])
+      getLoblawsData();
       // res.json(searchResults);
     }});
 
 
-    request(`https://www.realcanadiansuperstore.ca/search/1559539688626/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) => {
+const getWalmartData = () => request(`https://www.realcanadiansuperstore.ca/search/1559539688626/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) => {
       console.log ("Walmart Prices");
       if(!error && response.statusCode === 200){
         const $ = cheerio.load(html)
@@ -113,10 +114,12 @@ request(`https://www.metro.ca/en/search?filter=${query2}&freeText=true`, (error,
         const list3 = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
         searchResults.push(list3[0])
         // res.json(searchResults);
+
+        getLoblawsData();
       }});
 
 
-request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) =>{
+const getLoblawsData = () => request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/recommended/~selected/true`, (error, response, html) =>{
   console.log ("Loblaws Prices");
   if(!error && response.statusCode === 200){
     const $ = cheerio.load(html);
@@ -151,16 +154,16 @@ request(`https://www.nofrills.ca/search/1559526258197/page/~item/${query}/~sort/
 
             var length = 4;
             for (var i = 0; i<length; i++){
-            testArray.push({id: "Loblaws :",name: items[i], price: prices[i], quantity: quantities[i]})
+            testArray.push({id: "Walmart :",name: items[i], price: prices[i], quantity: quantities[i]})
             }
             const list2 = (testArray.sort((a, b) => (a.price > b.price) ? 1 : -1));
             searchResults.push(list2[0])
-            console.log(searchResults)
+            console.log("the results ", searchResults)
             searchResults.sort((a, b) => (a.price > b.price) ? 1 : -1);
+            res.json(searchResults);
   };
 
   console.log("These are your new search results : ",searchResults)
-  res.json(searchResults);
 });
 
 })
