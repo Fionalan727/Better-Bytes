@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import RecipeList from './pages/RecipeList';
+import Home from './components/Home';
+import RecipeList from './recipesPages/RecipeList';
 import Nav from "./components/nav";
-import ShoppingList from './list2/ShoppingList';
+import ShoppingList from './ingredientsPages/ShoppingList';
 
 class App extends Component {
   constructor(props){
