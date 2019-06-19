@@ -1,8 +1,8 @@
-/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700); */
+
 
 .round-button {
-  width:103px;
-  height:100px;
+  width:125px;
+  height:123px;
   border: 2px solid #6dcc85;
   border-radius: 50%;
   color:#6dcc85;
@@ -10,7 +10,7 @@
   text-decoration:none;
   background:white;
   box-shadow: 0 0 3px gray;
-  font-size:18px;
+  font-size:21px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   margin:0px 40px;
@@ -39,23 +39,19 @@
   padding: 0;
 } 
 
- /* .card-body{
-  
-  text-align: -webkit-center;
-  height: 163px;
-} */
+ 
 .button-group{
-  float: right;
+  width: max-content;
   display: inline-block;
   text-align: center;
-  margin: 10% 18% 5%;
+  margin: 3% 23% 3%;
 }
 .in-button{
   margin-top: 37px;
 }
 
 .recipeName{
-  /* -webkit-text-stroke: 1px #6dcc85; */
+
   color: papayawhip;
   text-shadow:
        3px 3px 0 #6dcc85,
@@ -79,6 +75,9 @@
   border-top-left-radius: 4px;
   border-bottom-right-radius: 20px;
   font-size: 0.8em;
+}
+.modal-lg {
+  max-width: 50%;
 }
 
 /* Shopping List CSS Starts Here */
@@ -148,9 +147,25 @@ h1 {
   width: 45%;
 }
 
-/* .item-box {
-  padding: 0px;
-} */
+.jumbotron{
+  height: 612px; 
+}
+.recipe-title{
+ font-family: 'Roboto', sans-serif;
+ font-weight: bold;
+}
+.pop-content{
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.4em;
+  font-weight: bold;
+  opacity: 0.8;
+  line-height: 2;
+}
+.step-img{
+  text-align: center;
+}
+
 
 /* copied recipe files from github  */
 
@@ -217,11 +232,4 @@ a.float:hover{
 
 a.float:hover .my-float{
   color: papayawhip;
-}
-.jumbotron{
-   height: 341px; 
-}
-.recipe-title{
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
 }

@@ -19,7 +19,7 @@ class RecipeFilter extends Component {
                     <button  className="round-button"  id = "2" onClick={handleclick}>Vegetarian</button>  
                 
                 
-                    <button className="round-button" id = "3" onClick={handleclick}>Dairy free</button>  
+                    <button className="round-button" id = "3" onClick={handleclick}>Dairy Free</button>  
                 
                 
                     <button className="round-button"  id = "4" onClick={handleclick}>Budget Friendly</button>  

@@ -58,11 +58,11 @@ class RecipePopup extends Component {
 
        
         return(   
-            <div className="modal fade" id={this.generateIdTag()} tabIndex="-1" role="dialog" aria-labelledby="popup" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal  fade" id={this.generateIdTag()} tabIndex="-1" role="dialog" aria-labelledby="popup" aria-hidden="true">
+                <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="popup">{this.props.name}</h5>
+                            <p className="modal-title display-3" id="popup">{this.props.name}</p>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -74,13 +74,13 @@ class RecipePopup extends Component {
                             
                             </div>
                         </div>
-                        <div>
+                        <div className="pop-content">
                             <p>Prep Time: {this.props.cookingTime} min</p>
-                            <p>{this.props.description}</p>
+                            <div>{this.props.description}</div>
                         </div>
-                        <div>
+                        <div className="pop-content">
                             <p>Ingredients(for two):</p>
-                            <ol>
+                            <ul>
                             {this.state.ingredients.map((ingredient) =>{
                                 let twoServing= (ingredient.quantity_per_person*2)
                                 return(
@@ -89,19 +89,20 @@ class RecipePopup extends Component {
 
                                 )
                             })}
-                            </ol>
+                            </ul>
                             
                             
                         </div>
-                        <div>
+                        <div className="pop-content">
                             <p>Steps:</p>
                             <ol>
                                 {this.state.recipeStep.map((recipeStep) =>{
                                     return(
                                     <li>
                                         <div>
-                                            <p>{recipeStep.title}</p>
-                                            <img alt="" src={recipeStep.image} className="img-responsive"/> <p>{recipeStep.step}. {recipeStep.description}</p> 
+                                            <div>{recipeStep.title}</div>
+                                            <img alt="" src={recipeStep.image} className="img-responsive step-img"/> 
+                                            <div> {recipeStep.description}</div> 
                                         </div>
                                     </li>
                                     )
