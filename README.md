@@ -2,6 +2,8 @@
 
 ## Main Contributors: Fiona Lan, Lucy Zhao and Mike Fyke
 
+!["Screenshot of Parallax 01"](https://github.com/Fionalan727/Better-Bytes/blob/master/client/build/image/screenshots/Parallax%20ScreenShot01.png)
+!["Screenshot of Parallax 02"](https://github.com/Fionalan727/Better-Bytes/blob/master/client/build/image/screenshots/Parallax%20ScreenShot02.png)
 
 ## Overview
 Better Bytes was a passionately collaborative project, meant to provide users with delicious new meal ideas, sorted by the lowest price and location and finalized into a grocery list.
